@@ -81,15 +81,8 @@
 
         %
         {\publications} Основные результаты по теме диссертации изложены в~\arabic{citeauthor}~печатных изданиях,
-        \arabic{citeauthorvak} из которых изданы в журналах, рекомендованных ВАК\sloppy%
-        \ifnum \value{citeauthorscopuswos}>0%
-            , \arabic{citeauthorscopuswos} "--- в~периодических научных журналах, индексируемых Web of~Science и Scopus\sloppy%
-        \fi%
-        \ifnum \value{citeauthorconf}>0%
-            , \arabic{citeauthorconf} "--- в~тезисах докладов.
-        \else%
-            .
-        \fi%
+            \arabic{citeauthorscopuswos} из которых изданы в~периодических научных журналах, индексируемых Web of~Science и Scopus, \arabic{citeauthorconf} --- в~тезисах докладов.
+       
         \ifnum \value{citeregistered}=1%
             \ifnum \value{citeauthorpatent}=1%
                 Зарегистрирован \arabic{citeauthorpatent} патент.
