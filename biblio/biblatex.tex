@@ -16,8 +16,6 @@ defernumbers=true,% нумерация проставляется после д�
 sortcites=true,% сортировать номера затекстовых ссылок при цитировании (если в квадратных скобках несколько ссылок, то отображаться будут отсортированно, а не абы как)
 doi=false,% Показывать или нет ссылки на DOI
 isbn=false,% Показывать или нет ISBN, ISSN, ISRN
-movenames=false,
-maxbibnames=100,
 ]{biblatex}[2016/09/17]
 \ltx@iffilelater{biblatex-gost.def}{2017/05/03}%
 {\toggletrue{bbx:gostbibliography}%
@@ -295,44 +293,6 @@ sorting=none,% настройка сортировки списка литера
 }
 \fi
 
-\ifpresentation
-% удаляем лишние поля в списке литературы презентации
-% их названия можно узнать в файле presentation.bbl
-\DeclareSourcemap{
-    \maps{
-    \map[overwrite,foreach={%
-        % {{{ Список лишних полей в презентации
-        address,%
-        chapter,%
-        edition,%
-        editor,%
-        eid,%
-        howpublished,%
-        institution,%
-        key,%
-        month,%
-        note,%
-        number,%
-        organization,%
-        pages,%
-        publisher,%
-        school,%
-        series,%
-        type,%
-        media,%
-        url,%
-        doi,%
-        location,%
-        volume,%
-        % Список лишних полей в презентации }}}
-    }]{
-        \perdatasource{biblio/author.bib}
-        \step[fieldset=$MAPLOOP,null]
-    }
-    }
-}
-\fi
-
 \defbibfilter{vakscopuswos}{%
     keyword=biblioauthorvak or keyword=biblioauthorscopus or keyword=biblioauthorwos
 }
@@ -412,9 +372,6 @@ sorting=none,% настройка сортировки списка литера
 %%% Убрать тире из разделителей элементов в библиографии:
 %\renewcommand*{\newblockpunct}{%
 %    \addperiod\space\bibsentence}%block punct.,\bibsentence is for vol,etc.
-%%% Изменение точки с запятой на запятую в перечислении библиографических
-%%% ссылок:
-%\renewcommand*{\multicitedelim}{\addcomma\space}
 
 %%% Возвращаем запись «Режим доступа» %%%
 %\DefineBibliographyStrings{english}{%
