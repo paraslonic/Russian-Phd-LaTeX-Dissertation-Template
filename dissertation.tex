@@ -50,7 +50,9 @@
 % Если все команды закомментированы, то документ будет выведен в PDF файл полностью
 
 \begin{document}
-
+%%% Переопределение именований типовых разделов
+% https://tex.stackexchange.com/a/156050
+\gappto\captionsrussian{\input{common/renames}\unskip} % for polyglossia and babel
 \input{common/renames}                 % Переопределение именований
 
 %%% Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
@@ -58,7 +60,7 @@
 \include{Dissertation/contents}        % Оглавление
 \ifnumequal{\value{contnumfig}}{1}{}{\counterwithout{figure}{chapter}}
 \ifnumequal{\value{contnumtab}}{1}{}{\counterwithout{table}{chapter}}
-%\include{Dissertation/introduction}    % Введение
+\include{Dissertation/introduction}    % Введение
 \ifnumequal{\value{contnumfig}}{1}{\counterwithout{figure}{chapter}
 }{\counterwithin{figure}{chapter}}
 \ifnumequal{\value{contnumtab}}{1}{\counterwithout{table}{chapter}
@@ -72,7 +74,7 @@
 \include{Dissertation/results_association}
 \include{Dissertation/discussion}         
 
-%\include{Dissertation/conclusion}      % Заключение
+\include{Dissertation/conclusion}      % Заключение
 %\include{Dissertation/acronyms}        % Список сокращений и условных обозначений
 %\include{Dissertation/dictionary}      % Словарь терминов
 \include{Dissertation/references}      % Список литературы
